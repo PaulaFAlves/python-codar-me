@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.urls import reverse
 
-from agenda.models import Evento
+from agenda.models import Categoria, Evento
 
 from datetime import date
 
@@ -29,3 +29,7 @@ def participar_evento(request):
 
   return HttpResponseRedirect(reverse('exibir_evento', args=(evento_id,)))
   
+def exibir_categoria(request, id):
+  categoria = get_object_or_404(Categoria, id=id)
+
+  return render(request=request, context={"categoria": categoria}, template_name="agenda/exibir_categoria.html")
