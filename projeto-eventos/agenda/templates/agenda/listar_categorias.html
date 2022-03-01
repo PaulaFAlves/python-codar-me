@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for categoria in categorias %}
+      <tr>
+        <td>{{ categoria.nome }}</td>
+        <td>
+          <a href="{% url 'exibir_categoria' categoria.id %}"
+            >{{ categoria.id }}</a
+          >
+        </td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+  <p><a href="{% url 'listar_eventos' %}">Ir para listagem de eventos</a></p>
+</html>

@@ -2,5 +2,7 @@
   <h1>Categoria</h1>
   <p>Nome: {{ categoria.nome }}</p>
   <p>Id: {{ categoria.id }}</p>
-  <p><a href="{% url 'listar_eventos' %}">Ir para listagem de eventos</a></p>
+  <p>
+    <a href="{% url 'listar_categorias' %}">Ir para listagem de categorias</a>
+  </p>
 </html>

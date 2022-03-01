@@ -28,6 +28,12 @@ def participar_evento(request):
   evento.save()
 
   return HttpResponseRedirect(reverse('exibir_evento', args=(evento_id,)))
+
+def listar_categorias(request):
+  #buscar eventos no banco
+  categorias = Categoria.objects.all()
+  #exibir um template listando eventos
+  return render(request=request, context={"categorias": categorias}, template_name="agenda/listar_categorias.html")
   
 def exibir_categoria(request, id):
   categoria = get_object_or_404(Categoria, id=id)

@@ -11,6 +11,10 @@
         text-align: left;
         padding: 8px;
       }
+
+      section {
+        margin: 12px;
+      }
     </style>
   </head>
   <table>
@@ -38,5 +42,7 @@
       {% endfor %}
     </tbody>
   </table>
-  <html></html>
+  <section>
+    <a href="{% url 'listar_categorias' %}">Categorias</a>
+  </section>
 </html>
