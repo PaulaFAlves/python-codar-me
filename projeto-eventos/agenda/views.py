@@ -11,7 +11,7 @@ from datetime import date
 # Create your views here.
 def listar_eventos(request):
   #buscar eventos no banco
-  eventos = Evento.objects.filter(data__gte=date.today())
+  eventos = Evento.objects.filter(data__gte=date.today()).order_by('data')
   #exibir um template listando eventos
   return render(request=request, context={"eventos": eventos}, template_name="agenda/listar_eventos.html")
 
@@ -37,5 +37,7 @@ def listar_categorias(request):
   
 def exibir_categoria(request, id):
   categoria = get_object_or_404(Categoria, id=id)
-
+  eventos = Evento.objects.filter(categoria=categoria)
+  categoria.quantidade_eventos = eventos.count()
+  
   return render(request=request, context={"categoria": categoria}, template_name="agenda/exibir_categoria.html")
