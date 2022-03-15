@@ -1,4 +1,3 @@
-from audioop import mul
 from calculadora import somar, dividir, multiplicar, subtrair
 import unittest
 
